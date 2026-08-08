@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erasmus.app — Tu experiencia Erasmus, más fácil</title>
+  <meta name="description" content="Erasmus.app: información, recursos y herramientas para preparar y disfrutar tu experiencia Erasmus." />
+  <meta name="robots" content="index, follow" />
+
+  <style>
+    :root{
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --text:#172033;
+      --muted:#667085;
+      --primary:#1f5eff;
+      --primary-dark:#1748c9;
+      --border:#e7eaf0;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:linear-gradient(180deg,#f8fbff 0%,#f7f9fc 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .container{
+      width:min(1120px, calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    header{
+      padding:22px 0;
+      border-bottom:1px solid rgba(231,234,240,.8);
+      background:rgba(255,255,255,.75);
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      font-weight:800;
+      font-size:1.25rem;
+      letter-spacing:-.03em;
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .brand span{
+      color:var(--primary);
+    }
+
+    .nav-link{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:.95rem;
+      font-weight:600;
+    }
+
+    .hero{
+      min-height:72vh;
+      display:flex;
+      align-items:center;
+      padding:80px 0 70px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border:1px solid #dbe5ff;
+      background:#eef4ff;
+      color:var(--primary);
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-bottom:22px;
+    }
+
+    h1{
+      font-size:clamp(3rem,7vw,6rem);
+      line-height:.98;
+      letter-spacing:-.065em;
+      max-width:780px;
+    }
+
+    .hero p{
+      margin-top:26px;
+      font-size:1.18rem;
+      color:var(--muted);
+      max-width:650px;
+    }
+
+    .actions{
+      margin-top:32px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      border-radius:12px;
+      padding:13px 20px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+      box-shadow:0 10px 30px rgba(31,94,255,.18);
+    }
+
+    .btn-primary:hover{
+      background:var(--primary-dark);
+      transform:translateY(-1px);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--text);
+      border:1px solid var(--border);
+    }
+
+    .btn-secondary:hover{
+      border-color:#cbd2dc;
+      transform:translateY(-1px);
+    }
+
+    .preview{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:0 24px 70px rgba(31,46,78,.08);
+    }
+
+    .preview-top{
+      display:flex;
+      gap:7px;
+      margin-bottom:24px;
+    }
+
+    .dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:#d9dee7;
+    }
+
+    .mini-card{
+      padding:18px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      margin-top:12px;
+      background:#fbfcfe;
+    }
+
+    .mini-card strong{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .mini-card span{
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .section{
+      padding:80px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 42px;
+    }
+
+    .section-title h2{
+      font-size:clamp(2rem,4vw,3.2rem);
+      letter-spacing:-.045em;
+      line-height:1.05;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      margin-top:14px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:26px;
+    }
+
+    .icon{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      background:#eef4ff;
+      display:grid;
+      place-items:center;
+      color:var(--primary);
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .card h3{
+      font-size:1.1rem;
+      margin-bottom:7px;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .cta{
+      margin:50px auto 80px;
+      background:var(--text);
+      color:#fff;
+      border-radius:24px;
+      padding:48px;
+      text-align:center;
+    }
+
+    .cta h2{
+      font-size:clamp(2rem,4vw,3rem);
+      letter-spacing:-.045em;
+    }
+
+    .cta p{
+      color:#cbd2dc;
+      margin-top:10px;
+    }
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:28px 0 40px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .footer-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width:800px){
+      .hero{
+        min-height:auto;
+        padding-top:60px;
+      }
+
+      .hero-grid{
+        grid-template-columns:1fr;
+        gap:38px;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .preview{
+        max-width:560px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="brand">erasmus<span>.app</span></a>
+        <a href="#sobre" class="nav-link">Sobre el proyecto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">✦ Próximamente</div>
+          <h1>Tu experiencia Erasmus, más fácil.</h1>
+          <p>
+            Erasmus.app nace para reunir en un solo lugar información,
+            recursos y herramientas útiles para preparar tu experiencia Erasmus.
+          </p>
+
+          <div class="actions">
+            <a href="#sobre" class="btn btn-primary">Descubrir el proyecto</a>
+            <a href="#proximamente" class="btn btn-secondary">Próximamente</a>
+          </div>
+        </div>
+
+        <div class="preview" aria-label="Vista previa de Erasmus.app">
+          <div class="preview-top">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+
+          <div class="mini-card">
+            <strong>🌍 Destinos</strong>
+            <span>Información útil para preparar tu movilidad.</span>
+          </div>
+
+          <div class="mini-card">
+            <strong>🎓 Universidades</strong>
+            <span>Recursos para comparar opciones y organizar tu estancia.</span>
+          </div>
+
+          <div class="mini-card">
+            <strong>🧳 Vida Erasmus</strong>
+            <span>Consejos prácticos antes, durante y después del viaje.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="section-title">
+          <h2>Un punto de partida para tu Erasmus</h2>
+          <p>
+            Una plataforma sencilla enfocada en hacer más clara la planificación
+            de una experiencia internacional.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Planificación</h3>
+            <p>Organiza los aspectos clave de tu movilidad desde un único lugar.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Información</h3>
+            <p>Accede a recursos claros para tomar mejores decisiones antes de viajar.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>Experiencia</h3>
+            <p>Descubre contenido útil para aprovechar al máximo tu estancia Erasmus.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="proximamente">
+      <div class="cta">
+        <h2>Estamos preparando Erasmus.app</h2>
+        <p>La plataforma estará disponible próximamente.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <strong>erasmus.app</strong>
+      <span>© 2026 Erasmus.app</span>
+    </div>
+  </footer>
+</body>
+</html>
