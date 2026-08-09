@@ -317,6 +317,12 @@
         max-width:560px;
       }
     }
+
+    .nav-actions{display:flex;align-items:center;gap:18px}
+    .language-switch{display:flex;gap:4px;padding:4px;border:1px solid var(--border);background:#fff;border-radius:10px}
+    .language-switch button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:.82rem;font-weight:800;padding:6px 9px;border-radius:7px;cursor:pointer}
+    .language-switch button.active{background:var(--text);color:#fff}
+
   </style>
 </head>
 
@@ -325,7 +331,13 @@
     <div class="container">
       <nav>
         <a href="#" class="brand">erasmus<span>.app</span></a>
-        <a href="#sobre" class="nav-link">Sobre el proyecto</a>
+        <div class="nav-actions">
+          <a href="#sobre" class="nav-link" data-i18n="navAbout">Sobre el proyecto</a>
+          <div class="language-switch" aria-label="Language selector">
+            <button type="button" id="lang-es" class="active" onclick="setLanguage('es')">ES</button>
+            <button type="button" id="lang-en" onclick="setLanguage('en')">EN</button>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -334,16 +346,16 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">✦ Próximamente</div>
-          <h1>Tu experiencia Erasmus, más fácil.</h1>
+          <div class="eyebrow" data-i18n="eyebrow">✦ Próximamente</div>
+          <h1 data-i18n="heroTitle">Tu experiencia Erasmus, más fácil.</h1>
           <p>
             Erasmus.app nace para reunir en un solo lugar información,
             recursos y herramientas útiles para preparar tu experiencia Erasmus.
           </p>
 
           <div class="actions">
-            <a href="#sobre" class="btn btn-primary">Descubrir el proyecto</a>
-            <a href="#proximamente" class="btn btn-secondary">Próximamente</a>
+            <a href="#sobre" class="btn btn-primary" data-i18n="discover">Descubrir el proyecto</a>
+            <a href="#proximamente" class="btn btn-secondary" data-i18n="comingSoon">Próximamente</a>
           </div>
         </div>
 
@@ -355,18 +367,18 @@
           </div>
 
           <div class="mini-card">
-            <strong>🌍 Destinos</strong>
-            <span>Información útil para preparar tu movilidad.</span>
+            <strong data-i18n="destinations">🌍 Destinos</strong>
+            <span data-i18n="destinationsText">Información útil para preparar tu movilidad.</span>
           </div>
 
           <div class="mini-card">
-            <strong>🎓 Universidades</strong>
-            <span>Recursos para comparar opciones y organizar tu estancia.</span>
+            <strong data-i18n="universities">🎓 Universidades</strong>
+            <span data-i18n="universitiesText">Recursos para comparar opciones y organizar tu estancia.</span>
           </div>
 
           <div class="mini-card">
-            <strong>🧳 Vida Erasmus</strong>
-            <span>Consejos prácticos antes, durante y después del viaje.</span>
+            <strong data-i18n="erasmusLife">🧳 Vida Erasmus</strong>
+            <span data-i18n="erasmusLifeText">Consejos prácticos antes, durante y después del viaje.</span>
           </div>
         </div>
       </div>
@@ -375,7 +387,7 @@
     <section class="section" id="sobre">
       <div class="container">
         <div class="section-title">
-          <h2>Un punto de partida para tu Erasmus</h2>
+          <h2 data-i18n="sectionTitle">Un punto de partida para tu Erasmus</h2>
           <p>
             Una plataforma sencilla enfocada en hacer más clara la planificación
             de una experiencia internacional.
@@ -385,20 +397,20 @@
         <div class="cards">
           <article class="card">
             <div class="icon">01</div>
-            <h3>Planificación</h3>
-            <p>Organiza los aspectos clave de tu movilidad desde un único lugar.</p>
+            <h3 data-i18n="planning">Planificación</h3>
+            <p data-i18n="planningText">Organiza los aspectos clave de tu movilidad desde un único lugar.</p>
           </article>
 
           <article class="card">
             <div class="icon">02</div>
-            <h3>Información</h3>
-            <p>Accede a recursos claros para tomar mejores decisiones antes de viajar.</p>
+            <h3 data-i18n="information">Información</h3>
+            <p data-i18n="informationText">Accede a recursos claros para tomar mejores decisiones antes de viajar.</p>
           </article>
 
           <article class="card">
             <div class="icon">03</div>
-            <h3>Experiencia</h3>
-            <p>Descubre contenido útil para aprovechar al máximo tu estancia Erasmus.</p>
+            <h3 data-i18n="experience">Experiencia</h3>
+            <p data-i18n="experienceText">Descubre contenido útil para aprovechar al máximo tu estancia Erasmus.</p>
           </article>
         </div>
       </div>
@@ -406,8 +418,8 @@
 
     <section class="container" id="proximamente">
       <div class="cta">
-        <h2>Estamos preparando Erasmus.app</h2>
-        <p>La plataforma estará disponible próximamente.</p>
+        <h2 data-i18n="ctaTitle">Estamos preparando Erasmus.app</h2>
+        <p data-i18n="ctaText">La plataforma estará disponible próximamente.</p>
       </div>
     </section>
   </main>
@@ -418,5 +430,82 @@
       <span>© 2026 Erasmus.app</span>
     </div>
   </footer>
+
+  <script>
+    const translations = {
+      es: {
+        pageTitle: "Erasmus.app — Tu experiencia Erasmus, más fácil",
+        description: "Erasmus.app: información, recursos y herramientas para preparar y disfrutar tu experiencia Erasmus.",
+        navAbout: "Sobre el proyecto",
+        eyebrow: "✦ Próximamente",
+        heroTitle: "Tu experiencia Erasmus, más fácil.",
+        heroText: "Erasmus.app nace para reunir en un solo lugar información, recursos y herramientas útiles para preparar tu experiencia Erasmus.",
+        discover: "Descubrir el proyecto",
+        comingSoon: "Próximamente",
+        destinations: "🌍 Destinos",
+        destinationsText: "Información útil para preparar tu movilidad.",
+        universities: "🎓 Universidades",
+        universitiesText: "Recursos para comparar opciones y organizar tu estancia.",
+        erasmusLife: "🧳 Vida Erasmus",
+        erasmusLifeText: "Consejos prácticos antes, durante y después del viaje.",
+        sectionTitle: "Un punto de partida para tu Erasmus",
+        sectionText: "Una plataforma sencilla enfocada en hacer más clara la planificación de una experiencia internacional.",
+        planning: "Planificación",
+        planningText: "Organiza los aspectos clave de tu movilidad desde un único lugar.",
+        information: "Información",
+        informationText: "Accede a recursos claros para tomar mejores decisiones antes de viajar.",
+        experience: "Experiencia",
+        experienceText: "Descubre contenido útil para aprovechar al máximo tu estancia Erasmus.",
+        ctaTitle: "Estamos preparando Erasmus.app",
+        ctaText: "La plataforma estará disponible próximamente."
+      },
+      en: {
+        pageTitle: "Erasmus.app — Your Erasmus experience, made easier",
+        description: "Erasmus.app: information, resources and tools to help you prepare for and enjoy your Erasmus experience.",
+        navAbout: "About the project",
+        eyebrow: "✦ Coming soon",
+        heroTitle: "Your Erasmus experience, made easier.",
+        heroText: "Erasmus.app brings together information, resources and useful tools to help you prepare for your Erasmus experience.",
+        discover: "Discover the project",
+        comingSoon: "Coming soon",
+        destinations: "🌍 Destinations",
+        destinationsText: "Useful information to help you prepare for your mobility experience.",
+        universities: "🎓 Universities",
+        universitiesText: "Resources to compare options and organize your stay.",
+        erasmusLife: "🧳 Erasmus life",
+        erasmusLifeText: "Practical advice before, during and after your trip.",
+        sectionTitle: "A starting point for your Erasmus",
+        sectionText: "A simple platform designed to make planning an international experience clearer and easier.",
+        planning: "Planning",
+        planningText: "Organize the key aspects of your mobility experience in one place.",
+        information: "Information",
+        informationText: "Access clear resources to make better decisions before you travel.",
+        experience: "Experience",
+        experienceText: "Discover useful content to make the most of your Erasmus stay.",
+        ctaTitle: "We are building Erasmus.app",
+        ctaText: "The platform will be available soon."
+      }
+    };
+
+    function setLanguage(lang){
+      const t = translations[lang] || translations.es;
+      document.documentElement.lang = lang;
+      document.title = t.pageTitle;
+      const meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.content = t.description;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key]) el.textContent = t[key];
+      });
+      document.getElementById("lang-es").classList.toggle("active", lang === "es");
+      document.getElementById("lang-en").classList.toggle("active", lang === "en");
+      localStorage.setItem("erasmus-language", lang);
+    }
+
+    const savedLanguage = localStorage.getItem("erasmus-language");
+    const browserLanguage = navigator.language && navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
+    setLanguage(savedLanguage || browserLanguage);
+  </script>
+
 </body>
 </html>
