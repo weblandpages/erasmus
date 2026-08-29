@@ -298,7 +298,76 @@
       flex-wrap:wrap;
     }
 
+
+    .sale-banner{
+      background:#0f172a;
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .sale-banner-inner{
+      min-height:92px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:18px 0;
+    }
+
+    .sale-banner-copy{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .sale-banner-copy strong{
+      font-size:1.08rem;
+      line-height:1.3;
+      font-weight:800;
+      letter-spacing:-.01em;
+    }
+
+    .sale-banner-copy span{
+      color:#cbd5e1;
+      font-size:.98rem;
+      line-height:1.35;
+    }
+
+    .sale-banner a{
+      flex:0 0 auto;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:11px 18px;
+      border-radius:10px;
+      background:#fff;
+      color:#0f172a;
+      font-weight:800;
+      text-decoration:none;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+
+    .sale-banner a:hover{
+      transform:translateY(-1px);
+      background:#eaf0ff;
+    }
+
     @media (max-width:800px){
+      .sale-banner-inner{
+        min-height:auto;
+        flex-direction:column;
+        align-items:stretch;
+        text-align:center;
+        gap:12px;
+        padding:16px 0;
+      }
+
+      .sale-banner a{
+        width:100%;
+      }
+
       .hero{
         min-height:auto;
         padding-top:60px;
@@ -327,6 +396,23 @@
 </head>
 
 <body>
+<div class="sale-banner">
+  <div class="container sale-banner-inner">
+    <div class="sale-banner-copy">
+      <strong>Erasmus.app is for sale.</strong>
+      <span>Erasmus.app está en venta.</span>
+    </div>
+
+    <a
+      href="https://www.godaddy.com/domainsearch/find?checkAvail=1&domainToCheck=erasmus.app"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View on GoDaddy / Ver en GoDaddy →
+    </a>
+  </div>
+</div>
+
   <header>
     <div class="container">
       <nav>
