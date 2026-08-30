@@ -15,3 +15,12 @@ footer{border-top:1px solid var(--border);padding:28px 0 40px;color:var(--muted)
 
 /* Destination guide pages */
 .city-card{display:block;text-decoration:none;color:inherit;transition:.2s ease}.city-card:hover{transform:translateY(-2px);border-color:#ccd8f6;box-shadow:0 14px 34px rgba(31,46,78,.06)}.city-card .status{transition:.2s ease}.city-card:hover .status{background:#e2ebff}.quick-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.fact{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px}.fact span{display:block;color:var(--muted);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.fact strong{font-size:1rem;letter-spacing:-.01em}.tag-link{text-decoration:none;transition:.2s ease}.tag-link:hover{transform:translateY(-1px);border-color:#bfd0ff}.city-hero{padding-bottom:40px}.home-destinations{padding-top:14px}@media(max-width:900px){.quick-facts{grid-template-columns:1fr 1fr}}@media(max-width:650px){.quick-facts{grid-template-columns:1fr}}
+
+.topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.topic-grid .card{height:100%}@media(max-width:1000px){.topic-grid{grid-template-columns:1fr 1fr}}@media(max-width:650px){.topic-grid{grid-template-columns:1fr}}
+
+/* Multilingual selector */
+.language-switch{display:inline-flex;align-items:center;gap:7px;padding:4px 8px;border:1px solid var(--border);background:#fff;border-radius:10px;min-height:38px}
+.language-icon{font-size:.9rem;line-height:1}
+.language-switch select{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:var(--text);font:inherit;font-size:.82rem;font-weight:800;cursor:pointer;outline:none;padding:4px 20px 4px 2px;background-image:linear-gradient(45deg,transparent 50%,#667085 50%),linear-gradient(135deg,#667085 50%,transparent 50%);background-position:calc(100% - 8px) 50%,calc(100% - 4px) 50%;background-size:4px 4px,4px 4px;background-repeat:no-repeat}
+.language-switch select:focus-visible{outline:2px solid rgba(31,94,255,.35);outline-offset:3px;border-radius:6px}
+@media(max-width:650px){.language-switch{width:auto}.language-switch select{max-width:150px}}
