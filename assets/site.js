@@ -20,8 +20,9 @@
     document.documentElement.lang = lang;
 
     document.querySelectorAll('[data-en]').forEach(el => {
-      if(lang === 'es' && el.dataset.es){
-        el.textContent = el.dataset.es;
+      const direct = el.getAttribute('data-' + lang);
+      if(direct){
+        el.textContent = direct;
       } else if(lang === 'en'){
         el.textContent = el.dataset.en;
       } else {
